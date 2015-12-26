@@ -1,27 +1,7 @@
 __author__ = 'verbalist'
 from pandas import read_csv, DataFrame
-
-import seaborn
-from sklearn.preprocessing import normalize
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
-from sklearn import metrics
-from matplotlib import pyplot as plt
 import numpy as np
-from  csv import DictWriter
 dataset = read_csv('train.csv', index_col='PassengerId')
-# fieldnames = ['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp', 'Parch', 'Ticket',
-#               'Fare', 'Cabin', 'Embarked']
-#
-# train_wr = DictWriter(open('X.csv', 'w'), fieldnames)
-# test_wr = DictWriter(open('X_t.csv', 'w'), fieldnames)
-
-
-# for i, x in enumerate(dataset):
-#      if i > 2/3*len(dataset):
-#           test_wr.writerow()
-
-# test = read_csv('test.csv')
 train = dataset[:int(len(dataset)/3*2)]
 test = dataset[int(len(dataset)/3*2):]
 target = dataset.Survived[:int(len(dataset)/3*2)]
@@ -52,14 +32,3 @@ X_t = [
 X = DataFrame(np.array(X).T)
 X_t = DataFrame(np.array(X_t).T)
 
-clf = GradientBoostingClassifier(n_estimators=4000, learning_rate=0.001)
-clf.fit(X, target)
-
-print(metrics.classification_report(target_test, clf.predict(X_t)))
-
-width = 0.35
-plt.bar(np.arange(len(clf.feature_importances_)), clf.feature_importances_, width=0.35)
-use_field =  ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
-plt.xticks(np.arange(len(clf.feature_importances_)) + width/2., use_field)
-
-plt.show()
