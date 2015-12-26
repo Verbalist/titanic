@@ -16,7 +16,16 @@ print(metrics.classification_report(target_test, clf.predict(X_t)))
 
 width = 0.35
 plt.bar(np.arange(len(clf.feature_importances_)), clf.feature_importances_, width=0.35)
-use_field =  ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
+use_field = ['Pclass',
+             'Sex',
+             'Age',
+             'SibSp',
+             'Parch',
+             'T1',
+             'T2',
+             # 'T number',
+             'Fare',
+             'Embarked']
 plt.xticks(np.arange(len(clf.feature_importances_)) + width/2., use_field)
 
 plt.show()
