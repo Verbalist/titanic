@@ -2,7 +2,6 @@ __author__ = 'verbalist'
 
 from sklearn import metrics
 import seaborn
-from sklearn.preprocessing import normalize
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn import metrics
