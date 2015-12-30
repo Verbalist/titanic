@@ -3,3 +3,5 @@
 *.sh
 *.txt
 /.idea/workspace.xml
+
+__pycache__/data.cpython-34.pyc
