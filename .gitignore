@@ -4,4 +4,4 @@
 *.txt
 /.idea/workspace.xml
 
-__pycache__/data.cpython-34.pyc
+__pycache__
